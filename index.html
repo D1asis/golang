@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>AITU</title>
+</head>
+
+<body>
+    <header class="mt-0 pt-0">
+        <div class="bg-cover clearfix pt-3">
+            <h2 class="logo">AITU</h2>
+            <nav class="nav nav-fill mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/astanaituniversity" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/astana_it_university/?hl=ru"><i class="fab fa-instagram"></i></a>
+                </li>
+            </nav>
+
+
+            <input type="text" id="nav-search" class="nav-search mx-auto" name="" class="form-control">
+            <div class="ml-0 mr-0 pb-1">
+                <nav class="navbar navbar-expand-md">
+
+                    <button class="navbar-toggler ml-auto" data-target="#my-nav" data-toggle="collapse"
+                        aria-controls="my-nav" aria-expanded="false" onclick="myFunction(this)"
+                        aria-label="Toggle navigation">
+                        <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span>
+                    </button>
+                    <div id="my-nav" class="collapse navbar-collapse">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/about">Абитуриенту</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/student">Студентам</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="" method="POST">
+                                    <div class="input-group mt-0 mx-auto" style="width:16px;">
+
+                                        <div class="">
+                                            <img src="images/search-icon.png" id="toggle-search"
+                                                 class="ml-2 toggle-search" alt="search icon">
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row ml-0 mr-0">
+            {{range .Articles}}
+            <div class="col-md-6 pr-0">
+                <div class="card">
+                    <img class="card-img" src="{{.ImageURL}}" alt="">
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
+                        <p>{{.Category}}</p>
+                        <hr />
+                        <h2>{{.Title}}</h2>
+                        <a href="#" class="btn">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+        </header>
+        <!-- Часть для вывода видео -->
+    <div class="container-fluid video-player">
+        <div class="container">
+            <div class="screen embed-responsive embed-responsive-16by9">
+                <iframe id="screen" src="{{with index .VideoLinks 0}}{{.URL}}{{end}}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+
+
+
+            </div>
+
+            <div class="play-list">
+                <div class="owl-carousel owl-carousel4 owl-theme">
+                    {{range .VideoLinks}}
+                    <div>
+                        <div class="card">
+                            <img class="card-img link-img" data-link="{{.URL}}" src="{{.Img}}" alt="">
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row vr-gallery">
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="images/inst1.jpg" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small>December 29, 2023</small></p>
+                            <h3>Best University Teacher-2023</h3>
+                            <p>
+                                Winners of the republican competition «Best University Teacher-2023»
+
+                                Based on the results of the republican competition, teachers and staff of Astana IT University were awarded the following titles:
+                                «Best University Teacher-2023»
+                                • Zhanat Karashbaeva
+                                • Khanat Kasenov
+                                • Alexander Neftisov
+                                «Best Researcher-2023»:
+                                • Kasen Maksat
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 pl-4 mb-4">
+                    <div class="card">
+                        <img class="card-img h-100" src="images/icode.jpg" alt="">
+                        <div class="card-img-overlay opacity text-center">
+                            <a class="play-1" href="https://www.youtube.com/watch?v=kyqdyn3ozDw"><img
+                                    src="images/play-icon.png" alt=""></a>
+                            <h5 class="card-title">AITU Code</h5>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mb-4 pr-0 pd-md">
+                    <div class="card">
+                        <img class="card-img h-100" src="images/students-clubs.jpg " alt="">
+                        <div class="card-img-overlay">
+                            <div class="contact-box">
+                                <p><small>December 5, 2023</small></p>
+                                <h3>Students club</h3>
+                                <p>Студенчество — невероятно интересная, яркая, насыщенная и волнительная пора. Новые знакомства, занимательные лекции, творческие задания, беседы с однокурсниками в перерывах между парами, напряжённый период сессии… Всё это создаёт непередаваемую атмосферу студенческой жизни. В этом есть своя романтика.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 pl-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" src="images/acad.jpg" alt="">
+                        <div class="card-body bg-gray cus-pd2 cus-arrow-up">
+                            <p><small>December 1, 2023</small></p>
+                            <h3>Академическая мобильность в Inha University</h3>
+                            <p>Департамент международного сотрудничества объявляет конкурс на участие в программе академической мобильности в Inha University, Южная Корея в 7 триместре🎓</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="images/prom.jpg" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small>May 7, 2023</small></p>
+                            <h3>Первый чемпионат Казахстана по спортивному программированию</h3>
+                            <p>
+                                To take a trivial example, which of us ever undertakes laborious physical exercise,
+                                except to obtain some advantage from it? But who has any right to find fault with a man
+                                who chooses...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 pl-4 mb-4">
+                    <div class="card">
+                        <img class="card-img h-100" src="images/hamed.jfif" alt="">
+                        <div class="card-img-overlay opacity text-center">
+                            <a class="play-1" href="https://www.youtube.com/watch?v=QoURc1Fhg_4&t=15s"><img
+                                    src="images/play-icon.png" alt=""></a>
+                            <h5 class="card-title">Weekend In Boston</h5>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <a href="/about" class="btn">Абитуриентам</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer class="container-fluid pt-5">
+        <div class="container">
+            <h2 class="logo text-center">AITU</h2>
+            <nav class="nav nav-fill mx-auto mt-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/astanaituniversity" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/astana_it_university/?hl=ru"><i class="fab fa-instagram"></i></a>
+                </li>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.yu2fvl.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
